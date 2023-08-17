@@ -51,16 +51,16 @@ if __name__ == '__main__':
     miner2 = Miner("zhangshan")
 
     mine_block(block_chain=block_chain, mine=miner1)
-    print("用户名：{0}\n账户：{1} \n余额：{2}".format(miner1.unique_no, miner1.account_address,
+    print("用户名：{0}\n账户：{1} \n余额：${2}".format(miner1.unique_no, miner1.account_address,
                                                    block_chain.get_balance_by_address(miner1.account_address)))
 
-    transaction = Transaction(miner1.account_address, miner2.account_address, 500)
+    transaction = Transaction(miner1.account_address, miner2.account_address, 5000)
     block_chain.add_transaction(transaction)
-    mine_block(block_chain=block_chain, mine=miner2)
-    print("用户名：{0}\n账户：{1} \n余额：{2}".format(miner2.unique_no, miner2.account_address,
-                                                   block_chain.get_balance_by_address(miner2.account_address)))
-
-    print("当前链长{0}".format(len(block_chain.chain)))
+    # mine_block(block_chain=block_chain, mine=miner2)
+    # print("用户名：{0}\n账户：{1} \n余额：{2}".format(miner2.unique_no, miner2.account_address,
+    #                                                block_chain.get_balance_by_address(miner2.account_address)))
+    #
+    # print("当前区块链长{0}".format(len(block_chain.chain)))
 
 
 
