@@ -38,7 +38,7 @@ def mine_block(block_chain, mine):
     time_end = time.perf_counter()
     print("挖到区块:{0}, 耗时: {1}秒".format(new_block.hash,time_end-time_start))
     block_chain.add_block(new_block)
-    block_chain.pending_transactions = []
+
 
 
 
@@ -54,13 +54,13 @@ if __name__ == '__main__':
     print("用户名：{0}\n账户：{1} \n余额：${2}".format(miner1.unique_no, miner1.account_address,
                                                    block_chain.get_balance_by_address(miner1.account_address)))
 
-    transaction = Transaction(miner1.account_address, miner2.account_address, 5000)
+    transaction = Transaction(miner1.account_address, miner2.account_address, 500)
     block_chain.add_transaction(transaction)
-    # mine_block(block_chain=block_chain, mine=miner2)
-    # print("用户名：{0}\n账户：{1} \n余额：{2}".format(miner2.unique_no, miner2.account_address,
-    #                                                block_chain.get_balance_by_address(miner2.account_address)))
-    #
-    # print("当前区块链长{0}".format(len(block_chain.chain)))
+    mine_block(block_chain=block_chain, mine=miner2)
+    print("用户名：{0}\n账户：{1} \n余额：{2}".format(miner2.unique_no, miner2.account_address,
+                                                   block_chain.get_balance_by_address(miner2.account_address)))
+
+    print("当前区块链长{0}".format(len(block_chain.chain)))
 
 
 

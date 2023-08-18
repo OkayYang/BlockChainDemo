@@ -92,6 +92,7 @@ class BlockChain:
         # 验证区块是否合法
         if self.is_valid_block(new_block):
             self.chain.append(new_block)
+            self.pending_transactions = []
             return True
         else:
             return False
